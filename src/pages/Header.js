@@ -16,7 +16,7 @@ class Header extends React.Component {
     const { expenses, exchange } = this.state;
     const { recoveredEmail } = this.props;
     return (
-      <div>
+      <div className="header-container">
         <h4 data-testid="email-field">{ recoveredEmail }</h4>
         <h4 data-testid="total-field">{ expenses }</h4>
         <h4 data-testid="header-currency-field">{ exchange }</h4>
