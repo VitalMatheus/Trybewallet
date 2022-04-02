@@ -2,7 +2,8 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
 import { fetchCurrencies, setFormInfos } from '../actions';
-import Header from './Header';
+import ExpensesTable from '../components/ExpensesTable';
+import Header from '../components/Header';
 
 class Wallet extends React.Component {
   constructor(props) {
@@ -136,6 +137,7 @@ class Wallet extends React.Component {
             Adicionar despesa
           </button>
         </form>
+        <ExpensesTable />
       </div>
     );
   }
