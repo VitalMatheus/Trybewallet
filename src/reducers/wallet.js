@@ -10,6 +10,11 @@ function wallet(state = initialState, action) {
       ...state,
       currencies: action.payload,
     };
+  case 'ADD_FORM_INFOS_TO_STORE':
+    return {
+      ...state,
+      expenses: [...state.expenses, action.payload],
+    };
   default:
     return state;
   }

@@ -55,9 +55,10 @@ class Login extends React.Component {
   render() {
     const { email, emailValidation, passwordValidation } = this.state;
     return (
-      <div>
+      <div className="login-container">
         <label htmlFor="email-input">
           Email
+          <br />
           <input
             type="email"
             id="email-input"
@@ -69,6 +70,7 @@ class Login extends React.Component {
         </label>
         <label htmlFor="password-input">
           Senha
+          <br />
           <input
             type="text"
             id="password-input"

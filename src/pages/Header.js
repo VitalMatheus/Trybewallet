@@ -3,23 +3,23 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 class Header extends React.Component {
-  constructor() {
-    super();
-
-    this.state = {
-      expenses: 0,
-      exchange: 'BRL',
-    };
-  }
-
   render() {
-    const { expenses, exchange } = this.state;
-    const { recoveredEmail } = this.props;
+    const { recoveredEmail, expenses } = this.props;
+    const total = expenses.length < 1 ? 0 : expenses
+      .map((index) => (index.exchangeRates[index.currency].ask) * Number(index.value))
+      .reduce((acc, curr) => acc + curr)
+      .toFixed(2);
+
     return (
       <div className="header-container">
-        <h4 data-testid="email-field">{ recoveredEmail }</h4>
-        <h4 data-testid="total-field">{ expenses }</h4>
-        <h4 data-testid="header-currency-field">{ exchange }</h4>
+        <div>
+          <h3>TRYBEWALLET</h3>
+        </div>
+        <div className="header-infos">
+          <h4 data-testid="email-field">{ `Usuário: ${recoveredEmail}` }</h4>
+          <h4 data-testid="total-field">{ total }</h4>
+          <h4 data-testid="header-currency-field">BRL</h4>
+        </div>
       </div>
     );
   }
@@ -27,10 +27,12 @@ class Header extends React.Component {
 
 const mapStateToProps = (state) => ({
   recoveredEmail: state.user.email,
+  expenses: state.wallet.expenses,
 });
 
 Header.propTypes = ({
   recoveredEmail: PropTypes.string.isRequired,
+  expenses: PropTypes.arrayOf(Object).isRequired,
 });
 
 export default connect(mapStateToProps, null)(Header);
