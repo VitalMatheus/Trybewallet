@@ -5,15 +5,17 @@ import { fetchCurrencies, setFormInfos } from '../actions';
 import ExpensesTable from '../components/ExpensesTable';
 import Header from '../components/Header';
 
+const ALIMENTAÇÂO = 'ALIMENTAÇÃO';
+
 class Wallet extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       value: '',
       description: '',
-      currency: '',
-      method: '',
-      tag: '',
+      currency: 'USD',
+      method: 'Dinheiro',
+      tag: ALIMENTAÇÂO,
     };
   }
 
@@ -48,9 +50,9 @@ class Wallet extends React.Component {
     this.setState({
       value: '',
       description: '',
-      currency: '',
-      method: '',
-      tag: '',
+      currency: 'USD',
+      method: 'Dinheiro',
+      tag: ALIMENTAÇÂO,
     });
   }
 
