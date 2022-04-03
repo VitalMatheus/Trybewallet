@@ -1,6 +1,8 @@
 const initialState = {
   currencies: [],
   expenses: [],
+  buttonExpenses: true,
+  editId: 0,
 };
 
 function wallet(state = initialState, action) {
@@ -19,6 +21,18 @@ function wallet(state = initialState, action) {
     return {
       ...state,
       expenses: state.expenses.filter((expense) => expense.id !== action.payload),
+    };
+  case 'EDIT_BUTTON':
+    return {
+      ...state,
+      buttonExpenses: false,
+      editId: action.payload,
+    };
+  case 'UPDATE_STATE':
+    return {
+      ...state,
+      buttonExpenses: true,
+      expenses: action.payload,
     };
   default:
     return state;
