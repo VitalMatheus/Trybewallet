@@ -15,6 +15,11 @@ function wallet(state = initialState, action) {
       ...state,
       expenses: [...state.expenses, action.payload],
     };
+  case 'DELETE_BUTTON':
+    return {
+      ...state,
+      expenses: state.expenses.filter((expense) => expense.id !== action.payload),
+    };
   default:
     return state;
   }

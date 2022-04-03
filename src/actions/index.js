@@ -1,6 +1,7 @@
 export const ADD_LOGIN_TO_STORE = 'ADD_LOGIN_TO_STORE';
 export const ADD_CURRENCIES_TO_STORE = 'ADD_CURRENCIES_TO_STORE';
 export const ADD_FORM_INFOS_TO_STORE = 'ADD_FORM_INFOS_TO_STORE';
+export const DELETE_BUTTON = 'DELETE_BUTTON';
 
 export const setState = (email) => ({
   type: ADD_LOGIN_TO_STORE,
@@ -15,6 +16,11 @@ export const addCurrencies = (currencies) => ({
 export const setFormInfos = (expenses) => ({
   type: ADD_FORM_INFOS_TO_STORE,
   payload: expenses,
+});
+
+export const delButton = (id) => ({
+  type: DELETE_BUTTON,
+  payload: id,
 });
 
 export function fetchCurrencies() {

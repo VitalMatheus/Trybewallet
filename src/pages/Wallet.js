@@ -5,7 +5,7 @@ import { fetchCurrencies, setFormInfos } from '../actions';
 import ExpensesTable from '../components/ExpensesTable';
 import Header from '../components/Header';
 
-const ALIMENTAÇÂO = 'ALIMENTAÇÃO';
+const ALIMENTAÇÂO = 'Alimentação';
 
 class Wallet extends React.Component {
   constructor(props) {
