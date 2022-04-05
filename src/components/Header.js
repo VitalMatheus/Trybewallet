@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import { FaWallet } from 'react-icons/fa';
 import { connect } from 'react-redux';
 
 class Header extends React.Component {
@@ -12,13 +13,18 @@ class Header extends React.Component {
 
     return (
       <div className="header-container">
-        <div>
-          <h3>TRYBEWALLET</h3>
+        <div className="header-title">
+          <FaWallet size={ 30 } />
+          <h4>TRYBEWALLET</h4>
         </div>
         <div className="header-infos">
-          <h4 data-testid="email-field">{ `Usuário: ${recoveredEmail}` }</h4>
-          <h4 data-testid="total-field">{ total }</h4>
-          <h4 data-testid="header-currency-field">BRL</h4>
+          <p data-testid="email-field">{`Olá ${recoveredEmail.split('@')[0]}`}</p>
+          {/* <p data-testid="header-currency-field">Moeda: BRL</p> */}
+          <p data-testid="total-field">
+            <strong>
+              { `Total: ${total} BRL` }
+            </strong>
+          </p>
         </div>
       </div>
     );

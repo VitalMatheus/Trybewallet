@@ -7,8 +7,8 @@ class ExpensesTable extends React.Component {
   render() {
     const { expenses, exclude, edit } = this.props;
     return (
-      <table>
-        <thead>
+      <table className="table table-dark table-striped">
+        <thead className="table-header">
           <tr>
             <th>Descrição</th>
             <th>Tag</th>
@@ -21,7 +21,7 @@ class ExpensesTable extends React.Component {
             <th>Editar/Excluir</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody className="table-body">
           { expenses.map((expense) => (
             <tr key={ expense.id }>
               <td>{ expense.description }</td>
@@ -36,21 +36,25 @@ class ExpensesTable extends React.Component {
               </td>
               <td>Real</td>
               <td>
-                <button
-                  id={ expense.id }
-                  type="button"
-                  data-testid="edit-btn"
-                  onClick={ () => edit(expense.id) }
-                >
-                  Editar
-                </button>
-                <button
-                  type="button"
-                  data-testid="delete-btn"
-                  onClick={ () => exclude(expense.id) }
-                >
-                  Excluir
-                </button>
+                <div className="td-buttons">
+                  <button
+                    id={ expense.id }
+                    type="button"
+                    data-testid="edit-btn"
+                    className="btn btn-warning"
+                    onClick={ () => edit(expense.id) }
+                  >
+                    Editar
+                  </button>
+                  <button
+                    type="button"
+                    data-testid="delete-btn"
+                    className="btn btn-danger"
+                    onClick={ () => exclude(expense.id) }
+                  >
+                    Excluir
+                  </button>
+                </div>
               </td>
             </tr>))}
         </tbody>

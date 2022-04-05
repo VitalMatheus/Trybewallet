@@ -72,7 +72,7 @@ class Login extends React.Component {
           Senha
           <br />
           <input
-            type="text"
+            type="password"
             id="password-input"
             placeholder="Senha"
             onChange={ this.validatePassword }
@@ -81,6 +81,7 @@ class Login extends React.Component {
         </label>
         <button
           type="submit"
+          className="btn btn-success"
           disabled={ !emailValidation || !passwordValidation }
           onClick={ this.handleClick }
         >

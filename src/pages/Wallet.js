@@ -91,20 +91,21 @@ class Wallet extends React.Component {
       <div>
         <Header />
         <form className="wallet-container">
-          <label htmlFor="value">
-            Valor:
+          <label htmlFor="description">
+            Descrição
+            {'    '}
             <input
               type="text"
-              name="value"
-              value={ value }
-              id="value"
-              placeholder="0"
+              name="description"
+              value={ description }
+              id="description"
               onChange={ this.handleChange }
-              data-testid="value-input"
+              data-testid="description-input"
             />
           </label>
           <label htmlFor="currency">
             Moeda
+            {'    '}
             <select
               name="currency"
               data-testid="currency-input"
@@ -144,25 +145,29 @@ class Wallet extends React.Component {
               <option value="Saúde">Saúde</option>
             </select>
           </label>
-          <label htmlFor="description">
-            Descrição
+          <label htmlFor="value">
+            Valor:
+            {'    '}
             <input
-              type="text"
-              name="description"
-              value={ description }
-              id="description"
+              type="number"
+              name="value"
+              value={ value }
+              id="value"
+              placeholder="0"
               onChange={ this.handleChange }
-              data-testid="description-input"
+              data-testid="value-input"
             />
           </label>
           <button
             type="button"
+            className="btn btn-warning"
             onClick={ buttonExpenses ? this.handleClick : this.handleEdit }
           >
             { buttonExpenses ? 'Adicionar despesa' : 'Editar despesa' }
           </button>
         </form>
         <ExpensesTable />
+        <img src="/undraw_Finance_re_gnv2" alt="" />
       </div>
     );
   }
